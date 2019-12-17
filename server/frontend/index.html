@@ -2,9 +2,9 @@
 <html>
  <head>
   <meta charset="utf-8" />
-  <title>Request viewer </title>
+  <title>Grid and Cloud app </title>
   <link rel="stylesheet" href="main.css">
-  <link href="prism.css" rel="stylesheet" />
+  {% comment %} <link href="prism.css" rel="stylesheet" /> {% endcomment %}
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">     
   <script src="main.js"></script>
   <!--[if IE]>
@@ -21,13 +21,15 @@
         <div class="record-container" id="record_place">
         </div>
         <form class="button-container">
-            <label>Your id = <b id="id-place"></b></label>
-            <input type="text" id="arg-input" value="100">
-            <button type="button" class="btn btn-primary"  id="RunButton" onclick="Run()" class="control-button">Запуск</button>
-            <label>Status = "<b id="status-place"></b>"</label>
-            <label id="answer-place"></label>
+            <p><label>Your id = <b id="id-place"></b></label><br>
+            <input type="text" id="arg-input" value="100"><br>
+            <button type="button" class="btn btn-primary"  id="RunButton" onclick="Run()" class="control-button">Запуск</button><br>
+            <label>Status = "<b id="status-place"></b>"</label><br>
+            <label id="answer-place"></label></p>
         </form>
     </div>
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous" ></script>
   
