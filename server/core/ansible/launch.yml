@@ -26,6 +26,9 @@
     - name: install python module
       command: python3 -m pip install requests
     
+    - name: create task dir
+      command: mkdir /home/ubuntu/
+
     - name: copy task python script
       copy:
         src: /root/grid-cloud/server/core/task.py
