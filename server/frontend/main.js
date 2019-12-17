@@ -88,9 +88,9 @@ function SendRequest(r_method, r_path, r_args, r_handler)
 
 function init()
 {
-    document.ID = Math.floor(Math.random() * Math.floor(1000000))
-    idplace = document.getElementById("id-place")
-    idplace.innerText = document.ID
+    document.ID = Math.floor(Math.random() * Math.floor(1000000));
+    idplace = document.getElementById("id-place");
+    idplace.innerText = document.ID;
 }
 
 
