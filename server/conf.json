@@ -1,0 +1,9 @@
+{
+  "user": "request_viewer",
+  "password": "view",
+  "host": "127.0.0.1",
+  "port": "5432",
+  "db_name": "request_viewer_db",
+  "email": "sommail@gmail.com",
+  "email_password": "axcaxs123QWE#@!"
+}
