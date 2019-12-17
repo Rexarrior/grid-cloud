@@ -62,21 +62,21 @@ def get_result(request):
     return response
 
 
-def main(request):
-    return FileResponse(open(BASE_DIR+'/frontend/index.html',
-                             'rb'))
+# def main(request):
+#     return FileResponse(open(BASE_DIR+'/frontend/index.html',
+#                              'rb'))
 
 
-def static_delivery(request, path=""):
-    p = BASE_DIR + '/frontend/' + path
-    print('requested path ' + p)
-    if os.path.isfile(p):
-        response = FileResponse(open(p))
-        if 'css'in path:
-            response['Content-Type'] = 'text/css'
-        if 'js' in path:
-            response['Content-Type'] = 'text/javascript'
+# def static_delivery(request, path=""):
+#     p = BASE_DIR + '/frontend/' + path
+#     print('requested path ' + p)
+#     if os.path.isfile(p):
+#         response = FileResponse(open(p))
+#         if 'css'in path:
+#             response['Content-Type'] = 'text/css'
+#         if 'js' in path:
+#             response['Content-Type'] = 'text/javascript'
 
-    else:
-        response = HttpResponseNotFound
-    return response
+#     else:
+#         response = HttpResponseNotFound
+#     return response

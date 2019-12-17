@@ -1,0 +1,13 @@
+- name: Terminate instances
+  hosts: localhost
+  tasks:
+    - name: get ec2 instance id by its name tag
+      ec2_instance:
+         region: us-east-2
+         filters:
+            tag:Name: "{{ vmID }}"
+      register: instances
+   
+    - name: Terminate instances that were previously launched
+      command: "python3 /home/ubuntu/task.py {{ id }} {{ arg }} {{ addr }}"
+      with_items: "{{instances.instances}}"

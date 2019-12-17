@@ -24,6 +24,6 @@ urlpatterns = [
     path(r'run', run),
     path(r'complete', complete),
     path(r'get_result', get_result),
-    path(r'<path:path>', static_delivery),
-    path(r'', main),
+    # path(r'<path:path>', static_delivery),
+    # path(r'', main),
 ]
