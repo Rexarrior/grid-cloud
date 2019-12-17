@@ -32,14 +32,14 @@ def run(request):
     record.save()
     launch_result = subprocess.run(['ansible-playbook',
                                     './core/ansible/launch.yml',
-                                    '--extra-vars', 'vmID=' + id],
+                                    '--extra-vars', 'vmID=' + str(id)],
                                    capture_output=True)
     addr = "http://195.133.144.66/api/complete"
     launch_result = subprocess.run('ansible-playbook', 
                                    './core/ansible/run_task.yml',
                                     '--extra-vars',
-                                   'vmID=' + id, 'id=' + id,
-                                   'arg=' + arg, 'addr=' + addr)
+                                   'vmID=' + str(id), 'id=' + str(id),
+                                   'arg=' + str(arg), 'addr=' + addr)
     return HttpResponse(status=200)
 
 

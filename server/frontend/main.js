@@ -47,7 +47,7 @@ function check_result()
 function check_result_handler(request)
 {
    
-    result = request.getResponseHeader('result');
+    result = request.headers['result']  ;
     if (result >= 0)
     {
         document.Answer = result
