@@ -1,3 +1,3 @@
 
-RUN_PATH = "run"
-RESULT_PATH = "get_result"
+RUN_PATH = "api/run"
+RESULT_PATH = "api/get_result"

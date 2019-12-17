@@ -21,9 +21,9 @@ from core.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path(r'run', run),
-    path(r'complete', complete),
-    path(r'get_result', get_result),
+    path(r'api/run', run),
+    path(r'api/complete', complete),
+    path(r'api/get_result', get_result),
     # path(r'<path:path>', static_delivery),
     # path(r'', main),
 ]

@@ -31,7 +31,7 @@ def run(request):
                                     './core/ansible/launch.yml',
                                     '--extra-vars', 'vmID=' + id],
                                    capture_output=True)
-    addr = "http://195.133.144.66/complete"
+    addr = "http://195.133.144.66/api/complete"
     launch_result = subprocess.run('ansible-playbook', 
                                    './core/ansible/run_task.yml',
                                     '--extra-vars',
