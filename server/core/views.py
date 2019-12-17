@@ -69,7 +69,7 @@ def main(request):
 
 def static_delivery(request, path=""):
     p = BASE_DIR + '/frontend/' + path
-    print(f'requested path {p}')
+    print(f'requested path '+ p)
     if os.path.isfile(p):
         response = FileResponse(open(p))
         if 'css'in path:
