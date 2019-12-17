@@ -22,6 +22,7 @@ function run()
         arg: arg
       })
       .then(run_request_handler)
+      .catch()
     document.checkTaskId = setInterval(check_result, 1000)
 }
 
@@ -38,19 +39,14 @@ function check_result()
     axios.post(RESULT_PATH, {
         id: document.ID,
       })
-      .then(check_result_handler)
+      .then(check_result_handler).catch( check_result_error)
 }
 
 
 
 function check_result_handler(request)
 {
-    if (request.status != 200)
-    {
-        alert("Error response")  ;
-        clearInterval(document.checkTaskId);
-        document.checkTaskId = undefined;
-    } 
+   
     result = request.getResponseHeader('result');
     if (result >= 0)
     {
@@ -60,6 +56,14 @@ function check_result_handler(request)
         clearInterval(document.checkTaskId)
         document.checkTaskId = undefined
     }
+}
+
+
+
+function check_result_error(arg)
+{
+    clearInterval(document.checkTaskId);
+    document.checkTaskId = undefined;
 }
 
 document.addEventListener("DOMContentLoaded", init);
