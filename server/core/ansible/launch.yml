@@ -13,9 +13,9 @@
          wait: true
          exact_count: 1
          count_tag:
-            Name: {{vmID}}
+            Name: "{{ vmID }}"
          instance_tags:
-            Name:  {{vmID}}
+            Name:  "{{ vmID }}"
          
       register: ec2
     
