@@ -31,4 +31,9 @@ top:330%;
     width: 25%;
     margin-left: 2%;
     margin-right: 2%;
+    max-height: 10px
+}
+
+.form-control-el{
+    margin: 1%;
 }

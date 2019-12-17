@@ -4,7 +4,6 @@
   <meta charset="utf-8" />
   <title>Grid and Cloud app </title>
   <link rel="stylesheet" href="main.css">
-  {% comment %} <link href="prism.css" rel="stylesheet" /> {% endcomment %}
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">     
   <script src="main.js"></script>
   <!--[if IE]>
@@ -21,11 +20,11 @@
         <div class="record-container" id="record_place">
         </div>
         <form class="button-container">
-            <p><label>Your id = <b id="id-place"></b></label><br>
-            <input type="text" id="arg-input" value="100"><br>
-            <button type="button" class="btn btn-primary"  id="RunButton" onclick="Run()" class="control-button">Запуск</button><br>
-            <label>Status = "<b id="status-place"></b>"</label><br>
-            <label id="answer-place"></label></p>
+            <p><label class=".form-control-el">Your id = <b id="id-place"></b></label><br>
+            <input  class=".form-control-el" type="text" id="arg-input" value="100"><br>
+            <button type="button" class="btn btn-primary control-button"  id="RunButton" onclick="Run()" class="control-button">Запуск</button><br>
+            <label  class=".form-control-el">Status = "<b id="status-place"></b>"</label><br>
+            <label  class=".form-control-el" id="answer-place"></label></p>
         </form>
     </div>
 
