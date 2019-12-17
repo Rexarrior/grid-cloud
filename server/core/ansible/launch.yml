@@ -32,7 +32,7 @@
         dest: /home/ubuntu/task.py
         owner: ubuntu
         group: ubuntu
-        mode: 7777
+        mode: 7777 
 
  
 
