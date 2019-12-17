@@ -9,4 +9,4 @@ class Record(models.Model):
     user_id = models.TextField()
     arg = models.IntegerField()
     completed = models.BooleanField()
-    answer = models.IntegerField()
+    answer = models.BigIntegerField()
