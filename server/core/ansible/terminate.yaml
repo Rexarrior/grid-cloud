@@ -1,0 +1,16 @@
+- name: Terminate instances
+  hosts: localhost
+  tasks:
+    - name: get ec2 instance id by its name tag
+      ec2_instance:
+         region: us-east-2
+         filters:
+            tag:Name: Demo
+      register: instances
+   
+    - name: Terminate instances that were previously launched
+      ec2:
+        state: 'absent'
+        region: us-east-2
+        instance_ids: '{{ item.instance_id}}'
+      with_items: "{{instances.instances}}"
