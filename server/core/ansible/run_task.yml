@@ -10,4 +10,5 @@
    
     - name: Terminate instances that were previously launched
       command: "python3 /home/ubuntu/task.py {{ id }} {{ arg }} {{ addr }}"
+      wait: true
       with_items: "{{instances.instances}}"

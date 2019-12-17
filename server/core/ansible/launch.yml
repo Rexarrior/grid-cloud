@@ -22,9 +22,11 @@
     - name: Add all instance public IPs to host group
       add_host: hostname={{ item.public_ip }} groups=ec2hosts
       loop: "{{ ec2.instances }}"
+      wait: true
     
     - name: install python module
       command: python3 -m pip install requests
+      wait: true
     
     # - name: create task dir
     #   command: mkdir /home/ubuntu/
@@ -35,6 +37,7 @@
         dest: /home/ubuntu/task.py
         owner: root
         mode: 7777 
+        wait: true
 
  
 
