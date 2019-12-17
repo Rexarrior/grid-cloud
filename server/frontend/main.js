@@ -142,5 +142,4 @@ function check_result_handler(request)
     }
 }
 
-
-init()
+document.addEventListener("DOMContentLoaded", init);
