@@ -16,8 +16,10 @@ import re
 import sys
 import time
 from datetime import datetime
+from django.views.decorators.csrf import csrf_exempt
 
 
+@csrf_exempt
 def run(request):
     arg = request.headers['arg']
     id = request.headers['id']
@@ -39,7 +41,7 @@ def run(request):
                                    'arg=' + arg, 'addr=' + addr)
     return HttpResponse(status=200)
 
-
+@csrf_exempt
 def complete(request):
     id = request.headers['id']
     ans = request.headers['answer']
@@ -49,7 +51,7 @@ def complete(request):
     record.save()
     return HttpResponse(status=200)
 
-
+@csrf_exempt
 def get_result(request):
     id = request.headers['id']
     records = Record.objects.all().filter(user_id=id)
