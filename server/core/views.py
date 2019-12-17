@@ -19,8 +19,8 @@ from datetime import datetime
 
 
 def run(request):
-    arg = request.Arg
-    id = request.id
+    arg = request.headers['arg']
+    id = request.headers['id']
     record = Record()
     record.user_id = id
     record.arg = arg
@@ -41,8 +41,8 @@ def run(request):
 
 
 def complete(request):
-    id = request.id
-    ans = request.answer
+    id = request.headers['id']
+    ans = request.headers['answer']
     record = Record.objects.get(user_id=id)
     record.answer = ans
     record.completed = True
@@ -51,7 +51,7 @@ def complete(request):
 
 
 def get_result(request):
-    id = request.id
+    id = request.headers['id']
     records = Record.objects.all().filter(user_id=id)
     result = -1
     if (len(records) > 0):
