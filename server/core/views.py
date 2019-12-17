@@ -21,8 +21,8 @@ from django.views.decorators.csrf import csrf_exempt
 
 @csrf_exempt
 def run(request):
-    arg = request.headers['arg']
-    id = request.headers['id']
+    arg = request.POST.get('arg')
+    id = request.POST.get('id')
     record = Record()
     record.user_id = id
     record.arg = arg
@@ -43,8 +43,8 @@ def run(request):
 
 @csrf_exempt
 def complete(request):
-    id = request.headers['id']
-    ans = request.headers['answer']
+    id = request.POST.get('id')
+    ans = request.POST.get('answer')
     record = Record.objects.get(user_id=id)
     record.answer = ans
     record.completed = True
@@ -53,7 +53,7 @@ def complete(request):
 
 @csrf_exempt
 def get_result(request):
-    id = request.headers['id']
+    id = request.POST.get('id')
     records = Record.objects.all().filter(user_id=id)
     result = -1
     if (len(records) > 0):
