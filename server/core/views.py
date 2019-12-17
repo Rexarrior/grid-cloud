@@ -31,8 +31,7 @@ def run(request):
                                     './core/ansible/launch.yml',
                                     '--extra-vars', 'vmID=' + id],
                                    capture_output=True)
-    print(f'VM creation exited with return code: {launch_result.returncode}' +
-          '({"un" if launch_result.returncode != 0 else ""}successful)')
+    print(f'VM creation exited with return code: {launch_result.returncode}({"un" if launch_result.returncode != 0 else ""}successful)')
     addr = "http://195.133.144.66/complete"
     launch_result = subprocess.run('ansible-playbook', 
                                    './core/ansible/run_task.yml',
