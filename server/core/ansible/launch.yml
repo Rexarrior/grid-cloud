@@ -28,7 +28,6 @@
         src: /root/grid-cloud/server/core/task.py
         dest: ~/task.py
         mode: 0644 
-        wait: true
 
  
 
