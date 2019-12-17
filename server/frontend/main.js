@@ -86,47 +86,61 @@ function SendRequest(r_method, r_path, r_args, r_handler)
 
 
 
-var RECORD_HTML = [
-    "<div class=\"panel panel-default\">\n<div class=\"panel-heading\">\n  <h3 class=\"panel-title\">\n",
-    "</h3>\n</div>\<div class=\"panel-body\">\n<div class=\"record_place\"><pre class=\"language-javascript\"><code class=\"language-javascript\">\n",
-    "</code></pre></div>\n</div>\n</div>"
-]
-
-
-
-function LoadRecords()
+function init()
 {
-    SendRequest("GET", "/api/get_records", [], function(request){
-        var container = document.getElementById("record_place");
-        console.log(request);
-        let records =  request.response;
-        records = JSON.parse(records) ;
-        let txt = "";
-        for (var i =0; i < records.length; i++)
-        {
-            
-            txt += RECORD_HTML[0];
-            txt += i;
-            txt += RECORD_HTML[1];
-            txt += JSON.stringify(records[i].fields);
-            txt += RECORD_HTML[2];
-        }
-        container.innerHTML = txt;
-        });
+    document.ID = Math.floor(Math.random() * Math.floor(1000000))
+    idplace = document.getElementById(document.ID)
+    idplace.innerText = document.ID
 }
 
 
 
-function ClearView()
+
+function run()
 {
-    var container = document.getElementById("record_place");
-    container.innerText = "";
+    if (document.checkTaskId != undefined)
+    {
+        alert("Already executing")
+        return
+    }
+    argPlace = document.getElementById('arg-input')
+    arg = argPlace.value; 
+    SendRequest("GET", RUN_PATH, {ID:document.ID, arg:arg},
+                run_request_handler)
+    document.checkTaskId = setInterval(check_result, 1000)
 }
 
 
-function ClearDB()
+
+function run_request_handler(request)
 {
-    SendRequest("GET", "/api/reset_db",[], function(){
-        alert("Все записи из базы данных были удалены.");
-    });
+
 }
+
+
+function check_result()
+{
+    SendRequest("GET", RESULT_PATH, {id: document.ID}, check_result_handler)
+}
+
+
+
+function check_result_handler(request)
+{
+    if (request.response.status != 200)
+    {
+        alert("Error response")  
+    } 
+    result = request.response.result
+    if (result >= 0)
+    {
+        document.Answer = result
+        resultPlace = document.getElementById("answer-place")
+        resultPlace.innerText = "Answer is " + result
+        clearInterval(document.checkTaskId)
+        document.checkTaskId = undefined
+    }
+}
+
+
+init()
