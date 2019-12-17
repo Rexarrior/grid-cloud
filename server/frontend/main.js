@@ -105,7 +105,7 @@ function run()
     }
     argPlace = document.getElementById('arg-input')
     arg = argPlace.value; 
-    SendRequest("GET", RUN_PATH, {ID:document.ID, arg:arg},
+    SendRequest("POST", RUN_PATH, {ID:document.ID, arg:arg},
                 run_request_handler)
     document.checkTaskId = setInterval(check_result, 1000)
 }
@@ -120,7 +120,7 @@ function run_request_handler(request)
 
 function check_result()
 {
-    SendRequest("GET", RESULT_PATH, {id: document.ID}, check_result_handler)
+    SendRequest("POST", RESULT_PATH, {id: document.ID}, check_result_handler)
 }
 
 
@@ -129,7 +129,9 @@ function check_result_handler(request)
 {
     if (request.response.status != 200)
     {
-        alert("Error response")  
+        alert("Error response")  ;
+        clearInterval(document.checkTaskId);
+        document.checkTaskId = undefined;
     } 
     result = request.response.result
     if (result >= 0)
