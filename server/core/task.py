@@ -17,4 +17,4 @@ if __name__ == '__main__':
     addr = sys.argv[3]
     ans = fact(arg)
     params = {'id': id, 'answer': ans}
-    r = requests.get(url=addr, params=params)
+    r = requests.post(url=addr, data=params)
