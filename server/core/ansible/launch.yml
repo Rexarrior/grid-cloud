@@ -33,8 +33,7 @@
       copy:
         src: /root/grid-cloud/server/core/task.py
         dest: /home/ubuntu/task.py
-        owner: ubuntu
-        group: ubuntu
+        owner: root
         mode: 7777 
 
  
