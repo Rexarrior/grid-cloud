@@ -57,6 +57,10 @@ def complete(request):
     record.answer = ans
     record.completed = True
     record.save()
+    subprocess.run(['ansible-playbook',
+                    './core/ansible/terminate.yml',
+                    '--extra-vars', 'vmID=' + str(id)]
+                   )
     return HttpResponse(status=200)
 
 
