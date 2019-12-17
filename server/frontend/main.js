@@ -38,7 +38,7 @@ function check_result()
     axios.post(RESULT_PATH, {
         id: document.ID,
       })
-      .then(check_result_request_handler)
+      .then(check_result_handler)
 }
 
 
