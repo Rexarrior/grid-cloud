@@ -1,37 +1,13 @@
 body{
-top:330%;
+
 }
 
-.record-container{
-    border-width: 2px;
-    border-color: black;
-    width: 50%;
-    max-width: 70%;
-    position: relative;
-    left: 10%;
-    right: 10%;
-    margin-top: 5%;
-    word-wrap: break-word;
-    overflow: scroll;
-    max-height: 60%;
-}
-
-
-
-.button-container{
-    margin-top: 5%;
-    margin-left: 10%;
-    margin-right: 10%;
-    width: 80%;
-    position: relative;
-    
-}
 
 .control-button{
     width: 25%;
     margin-left: 2%;
     margin-right: 2%;
-    max-height: 10px
+    max-height: 5%;
 }
 
 .form-control-el{
