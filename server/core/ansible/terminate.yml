@@ -8,9 +8,11 @@
             tag:Name: "{{ vmID }}"
       register: instances
    
+    
     - name: Terminate instances that were previously launched
       ec2:
         state: 'absent'
         region: us-east-2
+        wait: true
         instance_ids: '{{ item.instance_id}}'
       with_items: "{{instances.instances}}"
