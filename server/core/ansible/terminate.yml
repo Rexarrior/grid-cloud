@@ -8,11 +8,6 @@
             tag:Name: "{{ vmID }}"
       register: ec2
     
-    - name: Wait 600 seconds for target connection to become reachable/usable
-      wait_for_connection:
-
-
-    
     - name: Terminate instances that were previously launched
       ec2:
         state: 'absent'
