@@ -4,13 +4,14 @@
   tasks:
 
     - name: Launch instance
-      ec2_instance:
-         region: us-east-2
-         key_name: main_pub
-         instance_type: t2.micro
-         image_id: ami-0d5d9d301c853a04a
-         
-         tags:
+      ec2:
+        region: us-east-2
+        key_name: main_pub
+        instance_type: t2.micro
+        image: "ami-0d5d9d301c853a04a"
+        group: launch-wizard-1
+        exact_count: 1
+        instance_tags:
           Name: "{{ vmID }}"
         
          
