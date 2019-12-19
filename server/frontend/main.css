@@ -6,7 +6,7 @@
   }
 
 
-  .vertical-center{
+.vertical-center{
     margin: auto;
     height: 60%;
     padding: 10px;
@@ -19,7 +19,7 @@
 }
 
 .form-control-el{
-    margin: 1%;
+    margin: auto;
 }
 
 .answer-place{
