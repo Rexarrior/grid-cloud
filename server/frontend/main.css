@@ -1,6 +1,6 @@
 .center {
-    margin: auto;
-    width: 60%;
+    left: 30%;
+    width: 40%;
     padding: 10px;
   }
 
@@ -11,8 +11,8 @@
 
 .vertical-center{
     position: fixed;
-    height: 60%;
-    top:20%;
+    height: 40%;
+    top:30%;
     padding: 10px;
   }
 
@@ -24,11 +24,12 @@
 
 .form-control-el{
     margin: 2%;
+    width: 80%;
 }
 
 .answer-place{
     border-width: 1pt;
-    width: 60%; 
+    width: 80%; 
     font-size: 18px;
    
 }
