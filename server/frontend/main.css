@@ -10,7 +10,6 @@
   }
 
 .vertical-center{
-    position: fixed;
     height: 40%;
     top:30%;
     padding: 10px;
@@ -31,6 +30,7 @@
     border-width: 1pt;
     width: 80%; 
     font-size: 18px;
+    word-break: break-all;
    
 }
 
