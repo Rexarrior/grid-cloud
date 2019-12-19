@@ -3,13 +3,13 @@ body{
     background-repeat: repeat;
 }
 
-.center {
+.form {
     left: 30%;
     width: 40%;
     padding: 10px;
   }
 
-  .bord{
+.bord{
     border: 3px solid #73AD21;
       
   }
