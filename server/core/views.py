@@ -65,7 +65,7 @@ def complete(request):
                  './core/ansible/terminate.yml',
                  '--extra-vars', 'vmID=' + str(id)
                  ]
-    subprocess.Popen(cmd_parts, shell=True)
+    subprocess.Popen(" ".join(cmd_parts), shell=True)
     return HttpResponse(status=200)
 
 

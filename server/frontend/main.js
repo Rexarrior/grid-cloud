@@ -66,4 +66,32 @@ function check_result_error(arg)
     document.checkTaskId = undefined;
 }
 
+
+function startLoadingAnimation() 
+{
+  var imgObj = $("#loadImg");
+  imgObj.show();
+ 
+  var centerY = $(window).scrollTop() + ($(window).height() + imgObj.height())/2;
+  var centerX = $(window).scrollLeft() + ($(window).width() + imgObj.width())/2;
+ 
+  imgObj.offset({top: centerY, left: centerX});
+}
+ 
+function stopLoadingAnimation() // - функция останавливающая анимацию
+{
+  $("#loadImg").hide();
+}
+
+
+
+
+
+
+
+
+
+
+
+
 document.addEventListener("DOMContentLoaded", init);

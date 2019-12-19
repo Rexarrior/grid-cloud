@@ -1,6 +1,9 @@
-body{
-
-}
+.center {
+    margin: auto;
+    width: 60%;
+    border: 3px solid #73AD21;
+    padding: 10px;
+  }
 
 
 .control-button{
@@ -12,4 +15,9 @@ body{
 
 .form-control-el{
     margin: 1%;
+}
+
+.answer-place{
+    border-width: 1pt;
+   
 }
