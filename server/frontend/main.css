@@ -21,3 +21,5 @@
     border-width: 1pt;
    
 }
+
+#loadImg{position:absolute; z-index:1000; display:none}
