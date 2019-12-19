@@ -20,18 +20,17 @@ function run()
     axios.post(RUN_PATH, {
         id: document.ID,
         arg: arg
+      }).then(function(){
+            document.checkTaskId = setInterval(check_result, 1000);
+            startLoadingAnimation();
       })
-      .then(run_request_handler)
-      .catch()
-    document.checkTaskId = setInterval(check_result, 1000)
+      .catch(function(){
+          alert("Some erro occursed while run. Aborting...");
+
+      })
 }
 
 
-
-function run_request_handler(request)
-{
-
-}
 
 
 function check_result()
@@ -55,6 +54,7 @@ function check_result_handler(request)
         resultPlace.innerText = "Answer is " + result
         clearInterval(document.checkTaskId)
         document.checkTaskId = undefined
+        stopLoadingAnimation();
     }
 }
 
@@ -62,8 +62,11 @@ function check_result_handler(request)
 
 function check_result_error(arg)
 {
+    alert("Some erro occursed while getting result. Aborting...");
     clearInterval(document.checkTaskId);
     document.checkTaskId = undefined;
+    stopLoadingAnimation();
+
 }
 
 
