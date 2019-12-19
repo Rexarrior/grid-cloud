@@ -7,10 +7,9 @@
 
 
 .control-button{
-    width: 25%;
-    margin-left: 2%;
-    margin-right: 2%;
-    max-height: 5%;
+    width: 50%;
+    margin: 2%;
+    max-height: 50px;
 }
 
 .form-control-el{
