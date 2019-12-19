@@ -10,13 +10,15 @@ function init()
 
 function run()
 {
+    ;
     if (document.checkTaskId != undefined)
     {
         alert("Already executing")
         return
     }
-    argPlace = document.getElementById('arg-input')
+    argPlace = document.getElementById('arg-input');
     arg = argPlace.value; 
+    document.getElementById("RunButton").setAttribute("disabled", "disabled");
     axios.post(RUN_PATH, {
         id: document.ID,
         arg: arg
@@ -26,6 +28,7 @@ function run()
       })
       .catch(function(){
           alert("Some erro occursed while run. Aborting...");
+          document.getElementById("RunButton").removeAttribute("disabled");
 
       })
 }
@@ -55,6 +58,8 @@ function check_result_handler(request)
         clearInterval(document.checkTaskId)
         document.checkTaskId = undefined
         stopLoadingAnimation();
+        document.getElementById("RunButton").removeAttribute("disabled");
+
     }
 }
 
@@ -66,6 +71,7 @@ function check_result_error(arg)
     clearInterval(document.checkTaskId);
     document.checkTaskId = undefined;
     stopLoadingAnimation();
+    document.getElementById("RunButton").removeAttribute("disabled");
 
 }
 
