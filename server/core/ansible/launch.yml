@@ -11,9 +11,10 @@
         image: "ami-0d5d9d301c853a04a"
         group: launch-wizard-1
         exact_count: 1
+        count_tag:
+          Name: "{{ vmID }}"
         instance_tags:
           Name: "{{ vmID }}"
-        
          
       register: ec2
     
