@@ -10,12 +10,14 @@
   }
 
 .main{
+    
     width: 40%;
-    height: 40%;
+    min-height: 40%;
     left: 30%;
     top:30%;
     padding: 10px;
     position: absolute;
+    
   }
 
 .control-button{
@@ -35,7 +37,7 @@
     width: 80%; 
     font-size: 18px;
     word-break: break-all;
-   
+    overflow: auto;
 }
 
 #loadImg{position:absolute; z-index:1000; display:none}
