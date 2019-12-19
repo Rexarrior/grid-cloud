@@ -6,6 +6,12 @@
   }
 
 
+  .vertical-center{
+    margin: auto;
+    height: 60%;
+    padding: 10px;
+  }
+
 .control-button{
     width: 50%;
     margin: 2%;
