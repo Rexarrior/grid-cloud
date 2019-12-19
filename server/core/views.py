@@ -35,17 +35,18 @@ def run(request):
     record.completed = False
     record.answer = 0
     record.save()
-    launch_result = subprocess.call(['ansible-playbook',
-                                     './core/ansible/launch.yml',
-                                     '--extra-vars',
-                                     'vmID=' + str(id),
-                                     '--extra-vars',
-                                     'id=' + str(id),
-                                     '--extra-vars',
-                                     'arg=' + str(arg),
-                                     '--extra-vars',
-                                     'addr=' + APP_URL]
-                                    )
+    launch_result = subprocess.Popen(['ansible-playbook',
+                                      './core/ansible/launch.yml',
+                                      '--extra-vars',
+                                      'vmID=' + str(id),
+                                      '--extra-vars',
+                                      'id=' + str(id),
+                                      '--extra-vars',
+                                      'arg=' + str(arg),
+                                      '--extra-vars',
+                                      'addr=' + APP_URL],
+                                     shell=True
+                                     )
     return HttpResponse(status=200)
 
 
@@ -58,10 +59,10 @@ def complete(request):
     record.answer = ans
     record.completed = True
     record.save()
-    subprocess.call(['ansible-playbook',
-                     './core/ansible/terminate.yml',
-                     '--extra-vars', 'vmID=' + str(id)]
-                    )
+    subprocess.Popen(['ansible-playbook',
+                      './core/ansible/terminate.yml',
+                      '--extra-vars', 'vmID=' + str(id)]
+                     )
     return HttpResponse(status=200)
 
 
