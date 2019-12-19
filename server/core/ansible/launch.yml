@@ -12,7 +12,7 @@
          image: "ami-0d5d9d301c853a04a"
          wait: true
          tags:
-          Name: {{ vmID }}
+          Name: "{{ vmID }}"
         
          
       register: ec2
