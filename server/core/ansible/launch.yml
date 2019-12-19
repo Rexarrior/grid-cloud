@@ -7,7 +7,6 @@
       ec2_instance:
          region: us-east-2
          key_name: main_pub
-         group: launch-wizard-1
          instance_type: t2.micro
          image: "ami-0d5d9d301c853a04a"
          wait: true
