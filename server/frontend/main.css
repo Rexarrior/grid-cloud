@@ -1,3 +1,8 @@
+body{
+    background-image: url("./img/background.jpg");
+    background-repeat: repeat;
+}
+
 .center {
     left: 30%;
     width: 40%;
