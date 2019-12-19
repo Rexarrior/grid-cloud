@@ -3,9 +3,9 @@ body{
     background-repeat: repeat;
 }
 
-.form {
-    left: 30%;
-    width: 40%;
+form {
+    margin:auto;
+    width: 60%;
     padding: 10px;
   }
 
@@ -26,14 +26,13 @@ body{
   }
 
 .control-button{
-    width: 50%;
-    margin: 2%;
-    max-height: 50px;
+    max-height: 40px;
 }
 
 .form-control-el{
     margin: 2%;
-    width: 80%;
+    min-width: 80%;
+    left:40%;
 }
 
 .answer-place{
