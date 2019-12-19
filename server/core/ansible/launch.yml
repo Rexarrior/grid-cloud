@@ -3,31 +3,34 @@
 
   tasks:
 
-    - name: Provision a set of instances
-      ec2:
+    - name: Launch instance
+      ec2_instance:
          region: us-east-2
          key_name: main_pub
          group: launch-wizard-1
          instance_type: t2.micro
          image: "ami-0d5d9d301c853a04a"
          wait: true
-         exact_count: 1
-         count_tag:
-            Name: "{{ vmID }}"
-         instance_tags:
-            Name:  "{{ vmID }}"
+         tags:
+          Name: {{ vmID }}
+        
          
       register: ec2
     
-    - name: install python module
+    - name: Install requests module to python3
       command: python3 -m pip install requests        
 
 
-    - name: copy task python script
+    - name: Copy task
       copy:
         src: /root/grid-cloud/server/core/task.py
         dest: ~/task.py
         mode: 0644 
+    
+    
+    - name: Run task 
+      command: "python3 ~/task.py {{ id }} {{ arg }} {{ addr }}"
+
 
  
 

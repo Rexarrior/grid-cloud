@@ -17,6 +17,7 @@ import sys
 import time
 from datetime import datetime
 from django.views.decorators.csrf import csrf_exempt
+APP_URL = "http://rexarrior.ml/api/complete"
 
 
 @csrf_exempt
@@ -30,21 +31,17 @@ def run(request):
     record.completed = False
     record.answer = 0
     record.save()
-    launch_result = subprocess.run(['ansible-playbook',
-                                    './core/ansible/launch.yml',
-                                    '--extra-vars', 'vmID=' + str(id)]
-                                   )
-    addr = "http://rexarrior.ml/api/complete"
-    launch_result = subprocess.run(['ansible-playbook', 
-                                    './core/ansible/run_task.yml',
-                                    '--extra-vars',
-                                    'vmID=' + str(id),
-                                    '--extra-vars',
-                                    'id=' + str(id),
-                                    '--extra-vars',
-                                    'arg=' + str(arg),
-                                    '--extra-vars',
-                                    'addr=' + addr])
+    launch_result = subprocess.call(['ansible-playbook',
+                                     './core/ansible/launch.yml',
+                                     '--extra-vars',
+                                     'vmID=' + str(id),
+                                     '--extra-vars',
+                                     'id=' + str(id),
+                                     '--extra-vars',
+                                     'arg=' + str(arg),
+                                     '--extra-vars',
+                                     'addr=' + APP_URL]
+                                    )
     return HttpResponse(status=200)
 
 
@@ -57,10 +54,10 @@ def complete(request):
     record.answer = ans
     record.completed = True
     record.save()
-    subprocess.run(['ansible-playbook',
-                    './core/ansible/terminate.yml',
-                    '--extra-vars', 'vmID=' + str(id)]
-                   )
+    subprocess.call(['ansible-playbook',
+                     './core/ansible/terminate.yml',
+                     '--extra-vars', 'vmID=' + str(id)]
+                    )
     return HttpResponse(status=200)
 
 
