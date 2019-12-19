@@ -24,6 +24,8 @@
 
 .answer-place{
     border-width: 1pt;
+    width: 60%; 
+    font-size: 18px;
    
 }
 
