@@ -25,7 +25,11 @@ def run(request):
     data = json.loads(request.body.decode('utf-8'))
     arg = data['arg']
     id = data['id']
-    record = Record()
+    record = Record.objects.filter(user_id=id)
+    if (len(record) == 0):
+        record = Record()
+    else:
+        record = record[0]
     record.user_id = id
     record.arg = arg
     record.completed = False
