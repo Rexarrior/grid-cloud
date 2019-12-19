@@ -1,14 +1,18 @@
 .center {
     margin: auto;
     width: 60%;
-    border: 3px solid #73AD21;
     padding: 10px;
   }
 
+  .bord{
+    border: 3px solid #73AD21;
+      
+  }
 
 .vertical-center{
-    margin: auto;
+    position: fixed;
     height: 60%;
+    top:20%;
     padding: 10px;
   }
 
@@ -19,7 +23,7 @@
 }
 
 .form-control-el{
-    margin: auto;
+    margin: 2%;
 }
 
 .answer-place{
